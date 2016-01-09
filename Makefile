@@ -6,7 +6,7 @@
 #    By: dbourdon <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 17:28:45 by dbourdon          #+#    #+#              #
-#    Updated: 2015/12/01 19:29:35 by dbourdon         ###   ########.fr        #
+#    Updated: 2016/01/09 17:34:05 by dbourdon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,20 +20,15 @@ SRC_NAME =  ft_itoa.c ft_memset.c ft_putstr_fd.c ft_strequ.c ft_strncat.c \
 			ft_memcpy.c ft_putnbr.c ft_strcpy.c ft_strlen.c ft_strnstr.c \
 			ft_isdigit.c ft_memdel.c ft_putnbr_fd.c ft_strdel.c ft_strmap.c \
 			ft_strrchr.c ft_isprint.c ft_memmove.c ft_putstr.c ft_strdup.c \
-			ft_strmapi.c ft_strstr.c
-OBJ_PATH = ./
+			ft_strmapi.c ft_strstr.c ft_lstaddend.c ft_revers.c ft_count_nb.c \
+			ft_initlongtab.c ft_lexincalc.c
 NAME = libft.a
 CFLAGS = -Werror -Wall -Wextra
-OBJ_NAME = $(SRC_NAME:.c=.o)
-SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
-OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
-LIB = $(addprefix -L,$(LIB_PATH))
-INC = $(addprefix -I,$(INC_PATH))
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-		gcc -Werror -Wall -Wextra -c *.c
+$(NAME):
+		gcc $(CFLAG) -c $(SRC_NAME)
 		ar rc $(NAME) *.o
 		ranlib $(NAME)
 clean:
